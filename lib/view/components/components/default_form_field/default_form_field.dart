@@ -34,6 +34,7 @@ class DefaultFormField extends StatelessWidget {
   final int? minLines;
   final bool autofocus;
   final Color? borderColors;
+  final Color? prefixColor;
   final Color? fillColor;
   final Color focusBorderColor;
   final Color textColor;
@@ -74,6 +75,7 @@ class DefaultFormField extends StatelessWidget {
     required this.filled,
     this.fillColor,
     this.minLines,
+    this.prefixColor = AppColor.globalIconColor,
   }) : super(key: key);
 
   @override
@@ -121,7 +123,7 @@ class DefaultFormField extends StatelessWidget {
         alignLabelWithHint: true,
         prefixIcon: Icon(
           prefixIcon,
-          color: AppColor.globalIconColor,
+          color: prefixColor,
         ),
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(

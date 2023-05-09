@@ -69,7 +69,7 @@ class _BaseWidgetState extends State<BaseWidget> {
                       });
                     },
                     centerTitle: true,
-                    containerSize: 100,
+                    containerSize: 80,
                     title: navScreens[bottomNavIndex].name,
                     haveBack: true,
                     haveLogo: false,

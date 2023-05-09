@@ -22,6 +22,12 @@ dependencies:
 
   font_awesome_flutter: ^10.4.0
 
+  table_calendar: ^3.0.9
+
+  flutter_polls: ^0.1.2
+
+  app_popup_menu: ^1.0.0
+
 
 
 dev_dependencies:

@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       initialBinding: AppBindings(),
       home: const LoginPage(),
+      // home: ExamplePolls(),
     );
   }
 }

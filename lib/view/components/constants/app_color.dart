@@ -10,7 +10,8 @@ class AppColor {
   static const globalWhiteColor = Colors.white;
   static const globalButtonColor = Color(0xFF1E7EAE);
   static const globalTextColor = Colors.black54;
-  static Color? globalIconColor = Colors.grey[600];
+  static const globalIconColor = Colors.grey;
   static const globalBorderColor = Colors.black54;
-  static Color globalContainerColor = Colors.grey[50]!;
+  static Color? globalOddContainerColor = const Color(0xFFF6F9FA);
+  static Color? globalEventContainerColor = const Color(0xFFFFF0E4);
 }

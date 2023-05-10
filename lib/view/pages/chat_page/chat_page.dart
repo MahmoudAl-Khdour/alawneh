@@ -5,9 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../res/assets_res.dart';
+import '../../components/components/menu/menu.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
+
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
+  GlobalKey _menuKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +80,7 @@ class ChatPage extends StatelessWidget {
                                     width: 0.2,
                                     color: Colors.grey,
                                   )),
-                              child: Image(
+                              child: const Image(
                                 image: AssetImage(AssetsRes.ALAWNEH_LOGO),
                               ),
                             ),
@@ -133,11 +141,12 @@ class ChatPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.add,
-                              )),
+                          const Padding(
+                            padding: EdgeInsets.only(
+                              left: 10,
+                            ),
+                            child: Menu(),
+                          ),
                           Expanded(
                             child: TextField(
                               maxLines: 10000,

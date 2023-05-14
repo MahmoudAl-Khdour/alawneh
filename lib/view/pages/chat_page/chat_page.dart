@@ -123,93 +123,92 @@ class _ChatPageState extends State<ChatPage> {
                     horizontal: 15,
                     vertical: 10,
                   ),
-                  child: Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: AppColor.globalWhiteColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 0.5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: AppColor.globalWhiteColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 0.5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    width: SizeConfig.screenWidth,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(
+                            left: 10,
                           ),
-                        ],
-                      ),
-                      width: SizeConfig.screenWidth,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(
-                              left: 10,
-                            ),
-                            child: Menu(),
-                          ),
-                          Expanded(
-                            child: TextField(
-                              maxLines: 10000,
-                              minLines: 1,
-                              onTap: () {
-                                // controller.showEmojiKeyboard.value = false;
-                              },
-                              style: Theme.of(context).textTheme.bodyText1,
-                              // focusNode: controller.focusNode.value,
-                              // controller: controller.messageController.value,
-                              // onChanged: (value) => cubit.msgValidate(value),
-                              decoration: InputDecoration(
-                                contentPadding:
-                                    const EdgeInsets.fromLTRB(12, 5, 12, 5),
-                                hintText: 'Message ',
-                                fillColor: Colors.white,
-                                hintStyle: TextStyle(
-                                  color: Colors.grey[600],
+                          child: Menu(),
+                        ),
+                        Expanded(
+                          child: TextField(
+                            maxLines: 10000,
+                            minLines: 1,
+                            onTap: () {
+                              // controller.showEmojiKeyboard.value = false;
+                            },
+                            style: Theme.of(context).textTheme.bodyText1,
+                            // focusNode: controller.focusNode.value,
+                            // controller: controller.messageController.value,
+                            // onChanged: (value) => cubit.msgValidate(value),
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(12, 5, 12, 5),
+                              hintText: 'Message ',
+                              fillColor: Colors.white,
+                              hintStyle: TextStyle(
+                                color: Colors.grey[600],
+                              ),
+                              filled: true,
+                              focusedBorder: const OutlineInputBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(20),
+                                  bottom: Radius.circular(20),
                                 ),
-                                filled: true,
-                                focusedBorder: const OutlineInputBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20),
-                                    bottom: Radius.circular(20),
-                                  ),
-                                  gapPadding: 0,
-                                  borderSide: BorderSide(
-                                    width: 0,
-                                    style: BorderStyle.none,
-                                  ),
+                                gapPadding: 0,
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  style: BorderStyle.none,
                                 ),
-                                disabledBorder: const OutlineInputBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20),
-                                    bottom: Radius.circular(20),
-                                  ),
-                                  gapPadding: 0,
-                                  borderSide: BorderSide(
-                                    width: 0,
-                                    style: BorderStyle.none,
-                                  ),
+                              ),
+                              disabledBorder: const OutlineInputBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(20),
+                                  bottom: Radius.circular(20),
                                 ),
-                                enabledBorder: const OutlineInputBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20),
-                                    bottom: Radius.circular(20),
-                                  ),
-                                  gapPadding: 0,
-                                  borderSide: BorderSide(
-                                    width: 0,
-                                    style: BorderStyle.none,
-                                  ),
+                                gapPadding: 0,
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  style: BorderStyle.none,
+                                ),
+                              ),
+                              enabledBorder: const OutlineInputBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(20),
+                                  bottom: Radius.circular(20),
+                                ),
+                                gapPadding: 0,
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  style: BorderStyle.none,
                                 ),
                               ),
                             ),
                           ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.send_rounded,
-                              )),
-                        ],
-                      ),
+                        ),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.send_rounded,
+                            )),
+                      ],
                     ),
                   ),
                 ),

@@ -7,4 +7,5 @@ class AssetsRes {
   static const String PLUGIN_VERSION = '1.0.0+1';
   static const String ALAWNEH_LOGO = 'assets/images/alawneh_logo.png';
   static const String LOGIN_BACKGROUND = 'assets/images/login_background.png';
+  static const String splash_screen = 'assets/images/splash_screen.png';
 }

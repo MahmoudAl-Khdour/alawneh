@@ -49,6 +49,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: SizeConfig.screenHeight * 0.3,
                   child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
                     itemCount: 5,
                     itemBuilder: (context, index) => ListTile(
                       onTap: () {
@@ -89,6 +90,7 @@ class HomePage extends StatelessWidget {
                       (SizeConfig.screenHeight * 0.3) -
                       250,
                   child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (context, index) => ListTile(
                       onTap: () {

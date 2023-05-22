@@ -1,5 +1,7 @@
 import 'package:alawneh/res/assets_res.dart';
+import 'package:alawneh/view/components/components/size_config/size_config.dart';
 import 'package:alawneh/view/pages/login_page/view/login_page.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,16 +16,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: AssetsRes.PLUGIN_NAME,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialBinding: AppBindings(),
-      home: const LoginPage(),
-      // home: ExamplePolls(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: AssetsRes.PLUGIN_NAME,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialBinding: AppBindings(),
+        home: AnimatedSplashScreen(
+            duration: 2000,
+            splash: AssetsRes.splash_screen,
+            splashIconSize: SizeConfig.screenHeight,
+            centered: false,
+            nextScreen: const LoginPage(),
+            splashTransition: SplashTransition.fadeTransition,
+            backgroundColor: Colors.blue));
   }
 }
 

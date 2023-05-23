@@ -84,6 +84,7 @@ class _CalenderPageState extends State<CalenderPage> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
     return Padding(
       padding: const EdgeInsets.only(
         top: 95,
@@ -213,8 +214,74 @@ class _CalenderPageState extends State<CalenderPage> {
                       ),
                       child: Center(
                         child: ListTile(
-                          onTap: () => print('${value[index]}'),
-                          title: Text('In ${index + 2} Am '),
+                          onTap: () {
+                            print('${value[index]}');
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    actionsAlignment: MainAxisAlignment.start,
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          child: const Text(
+                                            'lorem ipsum is simply dummy text of the printing and typesetting industry',
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color:
+                                                  AppColor.globalDefaultColor,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: IconButton(
+                                            icon: const Icon(
+                                              Icons.cancel_outlined,
+                                              size: 25,
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        //todo date format
+                                        // Text('${DateTime.timestamp()}'),
+                                        TimeOfDay.fromDateTime(DateTime.now())
+                                                    .hour <
+                                                12
+                                            ? const Text('AM')
+                                            : const Text('PM'),
+                                        Container(
+                                          height: 150,
+                                          width: double.infinity,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(10),
+                                            ),
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                'assets/images/login_background.png',
+                                              ),
+                                              fit: BoxFit.cover,
+                                            ),
+                                            color: AppColor.globalDefaultColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                });
+                          },
+                          title: Text('at ${index + 2} Am '),
                           subtitle: Text(
                               'Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply'),
                         ),

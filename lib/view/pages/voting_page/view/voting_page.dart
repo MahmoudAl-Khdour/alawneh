@@ -33,91 +33,72 @@ class VotingPage extends StatelessWidget {
                 ))
                 .inDays;
 
-            return Container(
-              // margin: const EdgeInsets.only(bottom: 20),
-              child: FlutterPolls(
-                votedProgressColor: AppColor.globalDefaultColor,
-                pollOptionsHeight: 45,
+            return FlutterPolls(
+              votedProgressColor: AppColor.globalDefaultColor,
+              pollOptionsHeight: 45,
+              votesTextStyle: const TextStyle(
+                color: AppColor.globalDefaultColor,
+              ),
+              pollOptionsBorder: Border.all(
+                color: Colors.grey[200]!.withOpacity(0.6),
+              ),
+              pollOptionsBorderRadius: BorderRadius.circular(25),
+              votedPollOptionsRadius: const Radius.circular(25),
+              pollOptionsFillColor: Colors.grey[200]!.withOpacity(0.6),
+              heightBetweenOptions: 10,
+              leadingVotedProgessColor: AppColor.globalDefaultColor,
+              pollId: poll['id'].toString(),
+              onVoted: (PollOption pollOption, int newTotalVotes) async {
+                await Future.delayed(const Duration(seconds: 1));
+                setState() => {
+                      isVote = true,
+                    };
 
-                votesTextStyle: const TextStyle(
-                  color: AppColor.globalDefaultColor,
+                /// If HTTP status is success, return true else false
+                return true;
+              },
+              pollEnded: days < 0,
+              pollTitle: const Padding(
+                padding: EdgeInsets.only(
+                  top: 5,
+                  bottom: 20,
                 ),
-                pollOptionsBorder: Border.all(
-                  color: Colors.grey[200]!.withOpacity(0.6),
-                ),
-                pollOptionsBorderRadius: BorderRadius.circular(25),
-                votedPollOptionsRadius: const Radius.circular(25),
-                pollOptionsFillColor: Colors.grey[200]!.withOpacity(0.6),
-                heightBetweenOptions: 10,
-                // heightBetweenTitleAndOptions: 20,
-                leadingVotedProgessColor: AppColor.globalDefaultColor,
-                pollId: poll['id'].toString(),
-                // hasVoted: hasVoted.value,
-                // userVotedOptionId: userVotedOptionId.value,
-                onVoted: (PollOption pollOption, int newTotalVotes) async {
-                  await Future.delayed(const Duration(seconds: 1));
-                  setState() => {
-                        isVote = true,
-                      };
-
-                  /// If HTTP status is success, return true else false
-                  return true;
-                },
-                pollEnded: days < 0,
-                pollTitle: const Padding(
-                  padding: EdgeInsets.only(
-                    top: 5,
-                    bottom: 20,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      ''
-                      // poll['question']
-                      ,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    ''
+                    // poll['question']
+                    ,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
-                pollOptions: List<PollOption>.from(
-                  poll['options'].map(
-                    (option) {
-                      var a = PollOption(
-                        id: option['id'],
-                        title: Text(
-                          option['title'],
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.blue[300],
-                          ),
+              ),
+              pollOptions: List<PollOption>.from(
+                poll['options'].map(
+                  (option) {
+                    var a = PollOption(
+                      id: option['id'],
+                      title: Text(
+                        option['title'],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.blue[300],
                         ),
-                        votes: option['votes'],
-                      );
-                      return a;
-                    },
-                  ),
+                      ),
+                      votes: option['votes'],
+                    );
+                    return a;
+                  },
                 ),
-                votedPercentageTextStyle: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.globalDefaultColor),
-                // metaWidget: Row(
-                //   children: [
-                //     const SizedBox(width: 6),
-                //     const Text(
-                //       '•',
-                //     ),
-                //     const SizedBox(
-                //       width: 6,
-                //     ),
-                //     Text(
-                //       days < 0 ? "ended" : "ends $days days",
-                //     ),
-                //   ],
-                // ),
+              ),
+              votedPercentageTextStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: AppColor.globalDefaultColor,
               ),
             );
           },

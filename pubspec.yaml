@@ -61,7 +61,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-    - assets/images/alawneh.png
     - assets/images/alawneh_logo.png
     - assets/images/login_background.png
     - assets/images/splash_screen.png

@@ -16,7 +16,7 @@ class _CalenderPageState extends State<CalenderPage> {
   CalendarFormat _calendarFormat = CalendarFormat.week;
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
       .toggledOff; // Can be toggled on/off by longpressing a date
-  DateTime _focusedDay = DateTime.now();
+  DateTime focusedDayp = DateTime.now();
   DateTime? _selectedDay;
   DateTime? _rangeStart;
   DateTime? _rangeEnd;
@@ -25,7 +25,7 @@ class _CalenderPageState extends State<CalenderPage> {
   void initState() {
     super.initState();
 
-    _selectedDay = _focusedDay;
+    _selectedDay = focusedDayp;
     _selectedEvents = ValueNotifier(_getEventsForDay(_selectedDay!));
   }
 
@@ -53,7 +53,7 @@ class _CalenderPageState extends State<CalenderPage> {
     if (!isSameDay(_selectedDay, selectedDay)) {
       setState(() {
         _selectedDay = selectedDay;
-        _focusedDay = focusedDay;
+        focusedDayp = focusedDay;
         _rangeStart = null; // Important to clean those
         _rangeEnd = null;
         _rangeSelectionMode = RangeSelectionMode.toggledOff;
@@ -66,7 +66,7 @@ class _CalenderPageState extends State<CalenderPage> {
   void _onRangeSelected(DateTime? start, DateTime? end, DateTime focusedDay) {
     setState(() {
       _selectedDay = null;
-      _focusedDay = focusedDay;
+      focusedDayp = focusedDay;
       _rangeStart = start;
       _rangeEnd = end;
       _rangeSelectionMode = RangeSelectionMode.toggledOn;
@@ -94,7 +94,7 @@ class _CalenderPageState extends State<CalenderPage> {
           TableCalendar<Event>(
             firstDay: kFirstDay,
             lastDay: kLastDay,
-            focusedDay: _focusedDay,
+            focusedDay: focusedDayp,
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             rangeStartDay: _rangeStart,
             rangeEndDay: _rangeEnd,
@@ -179,7 +179,7 @@ class _CalenderPageState extends State<CalenderPage> {
               }
             },
             onPageChanged: (focusedDay) {
-              _focusedDay = focusedDay;
+              focusedDayp = focusedDay;
             },
             pageAnimationEnabled: true,
           ),
@@ -239,7 +239,7 @@ class _CalenderPageState extends State<CalenderPage> {
                                         Align(
                                           alignment: Alignment.topRight,
                                           child: IconButton(
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.cancel_outlined,
                                               size: 25,
                                             ),
@@ -253,8 +253,7 @@ class _CalenderPageState extends State<CalenderPage> {
                                     content: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[
-                                        //todo date format
-                                        // Text('${DateTime.timestamp()}'),
+                                        Text('${DateTime.timestamp()}'),
                                         TimeOfDay.fromDateTime(DateTime.now())
                                                     .hour <
                                                 12
